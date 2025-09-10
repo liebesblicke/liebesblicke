@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>liebesblicke – Profil</title>
+  <meta name="description" content="Profilseite von liebesblicke – Avatar, Lieblingssong und Socials." />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="preload" as="image" href="FREEZE.gif">
+  <style>
+    :root {
+      --radius: 20px;
+      --glass: rgba(0,0,0,.45);
+      --glass-strong: rgba(0,0,0,.55);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #fff;
+      background: #000; /* Fallback while Video lädt */
+      overflow: hidden; /* keine Scrollbars bei Fullscreen */
+    }
+
+    /* Fullscreen-Video-Hintergrund */
+    .bg { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
+    .bg video { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.2) contrast(1.05) brightness(.7); }
+    .vignette { position: fixed; inset: 0; z-index: -1; background: radial-gradient(1200px 700px at 50% 30%, transparent 30%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.6) 85%); }
+
+    /* Center Card */
+    .wrap { height: 100%; display: grid; place-items: center; padding: 20px; }
+    .card {
+      width: min(740px, 92vw);
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: clamp(18px, 3vw, 28px);
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+
+    .avatar { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,.9); box-shadow: 0 12px 30px rgba(0,0,0,.5); display: block; margin: 0 auto 12px; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: .3px; text-shadow: 0 0 22px rgba(255,255,255,.35), 0 2px 0 rgba(0,0,0,.25); }
+    .handle { opacity: .9; margin-top: -2px; }
+    .discord { margin: 6px 0 12px; font-weight: 600; opacity: .85; }
+
+    /* Spotify Embed */
+    .player { margin: 16px auto 8px; background: var(--glass-strong); padding: 8px; border-radius: 14px; border: 1px solid rgba(255,255,255,.1); }
+    .player iframe { width: min(460px, 86vw); height: 152px; border: 0; border-radius: 12px; }
+
+    /* Socials row (optional, leer lassen wenn nicht gebraucht) */
+    .socials { margin-top: 14px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); color: #fff; text-decoration: none; font-weight: 600; }
+    .chip:hover { background: rgba(255,255,255,.12); }
+
+    .views { margin-top: 10px; opacity: .7; font-size: .95rem; }
+
+    @media (max-width: 520px) {
+      .player iframe { height: 152px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background video -->
+  <div class="bg" aria-hidden="true">
+    <video src="ART_STUDIO_-Via_KLICKPIN_CF.mp4" autoplay muted loop playsinline></video>
+  </div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <main class="card" role="main">
+      <img class="avatar" src="FREEZE.gif" alt="Avatar von liebesblicke" />
+      <h1>liebesblicke</h1>
+      <p class="handle">@liebesblicke</p>
+      <p class="discord">Discord: liebesblicke</p>
+
+      <div class="player" aria-label="Spotify Player">
+        <iframe src="https://open.spotify.com/embed/track/07iBng6dTr8k5Kx1n9BmFC?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+
+      <!-- Optional: Social Links
+      <div class="socials">
+        <a class="chip" href="https://discord.com/users/" target="_blank" rel="noopener">Discord</a>
+        <a class="chip" href="https://open.spotify.com/user/" target="_blank" rel="noopener">Spotify</a>
+      </div>
+      -->
+
+      <div class="views">👁️ 4472</div>
+    </main>
+  </div>
+</body>
+</html>
